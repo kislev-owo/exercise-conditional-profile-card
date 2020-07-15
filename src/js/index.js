@@ -29,18 +29,32 @@ function render(variables = {}) {
   let cover = `<div class="cover"><img src="${variables.background}" /></div>`;
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
+  if (variables.name == null) variables.name = "Your Name";
+  if (variables.lastname == null) variables.lastname = "last name";
+  if (variables.role == null) variables.role = "Role";
+  if (variables.city == null) variables.city = "City";
+  if (variables.country == null) variables.country = "Country";
+  if (variables.twitter == null) variables.twitter = "Your username";
+  if (variables.github == null) variables.github = "Your username";
+  if (variables.linkedin == null) variables.linkedin = "Your username";
+  if (variables.instagram == null) variables.instagram = "Your username";
+
   // reset the website body with the new html output
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>Lucy Boilett</h1>
-          <h2>Web Developer</h2>
-          <h3>Miami, USA</h3>
-          <ul class="position-right">
-            <li><a href="https://twitter.com/alesanchezr"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://github.com/alesanchezr"><i class="fa fa-github"></i></a></li>
-            <li><a href="https://linkedin.com/alesanchezr"><i class="fa fa-linkedin"></i></a></li>
-            <li><a href="https://instagram.com/alesanchezr"><i class="fa fa-instagram"></i></a></li>
+          <h1>${variables.name} ${variables.lastname}</h1>
+          <h2>${variables.role}</h2>
+          <h3>${variables.city}, ${variables.country}</h3>
+          <ul ${variables.socialMediaPosition} class="position-right">
+            <li><a href="https://twitter.com/${variables.twitter}"> 
+            <i class="fa fa-twitter"></i></a></li>
+            <li><a href="https://github.com/${variables.github}">
+            <i class="fa fa-github"></i></a></li>
+            <li><a href="https://linkedin.com/${variables.linkedin}">
+            <i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://instagram.com/${variables.instagram}">
+            <i class="fa fa-instagram"></i></a></li>
           </ul>
         </div>
     `;
@@ -54,14 +68,16 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://www.masnoticias.org/images/Sunflower-reorientation.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://avatars2.githubusercontent.com/u/63132412?s=400&u=d86748fb3cb74963e6a056ad58998adcc57c5d90&v=4",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: "alesanchezr",
+    github: null,
     linkedin: null,
     instagram: null,
     name: null,
