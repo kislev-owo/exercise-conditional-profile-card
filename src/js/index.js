@@ -35,7 +35,7 @@ function render(variables = {}) {
   if (variables.city == null) variables.city = "City";
   if (variables.country == null) variables.country = "Country";
   if (variables.twitter == null) variables.twitter = "Your username";
-  if (variables.github == null) variables.github = "Your username";
+  if (variables.github == "alesanchezr") variables.github = "Your username";
   if (variables.linkedin == null) variables.linkedin = "Your username";
   if (variables.instagram == null) variables.instagram = "Your username";
 
@@ -77,7 +77,7 @@ window.onload = function() {
     socialMediaPosition: "position-left",
     // social media usernames
     twitter: null,
-    github: null,
+    github: "alesanchezr",
     linkedin: null,
     instagram: null,
     name: null,
